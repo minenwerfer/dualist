@@ -1,0 +1,26 @@
+{
+  "name": "dualist",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo skipping",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "pnpm build"
+  },
+  "bin": {
+    "sonata-build": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.10",
+    "eslint-config-aeria": "^0.0.15"
+  }
+}
