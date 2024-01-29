@@ -17,7 +17,7 @@ $ yarn global add dualist
 
 ```sh
 $ dualist api web # "api" and "web" are folders present in the current cwd
-$ dualist api web -c 'npm dev' # -c specifies a custom command, defaults to "npm run serve"
+$ dualist api web -c 'npm run dev' # -c specifies a custom command, defaults to "npm run serve"
 ```
 
 You may also want to add dualist in your package.json's scripts:

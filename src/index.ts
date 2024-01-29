@@ -47,6 +47,7 @@ const main = () => {
       },
     },
   })
+
   const sources = positionals
 
   for( const [index, source] of sources.entries() ) {
