@@ -28,7 +28,7 @@ const main = () => {
   const {
     positionals,
     values: {
-      command = 'npm run serve'
+      command = 'npm run dev'
     }
   } = parseArgs({
     allowPositionals: true,
