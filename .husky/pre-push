@@ -3,6 +3,3 @@
 
 pnpm lint
 
-if test -d playground/node_modules; then
-  pnpm i
-fi

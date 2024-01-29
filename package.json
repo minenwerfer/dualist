@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo skipping",
     "build": "tsc",
-    "watch": "tsc --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "husky",
     "prepublishOnly": "pnpm build"
   },
   "bin": {
