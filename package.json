@@ -8,7 +8,7 @@
     "build": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "postinstall": "husky",
+    "prepare": "husky",
     "prepublishOnly": "pnpm build"
   },
   "bin": {
