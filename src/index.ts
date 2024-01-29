@@ -6,13 +6,12 @@ const transformOutput = (source: string) => new Transform({
   transform(chunk, _encoding, callback) {
     const transformedChunk = String(chunk).split('\n')
       .map((line) => line
-         ? `[${source}] ${line}`
-         : ''
-      )
+        ? `[${source}] ${line}`
+        : '')
       .join('\n')
 
     callback(null, transformedChunk)
-  }
+  },
 })
 
 const pipeOutput = (proc: ChildProcessWithoutNullStreams, source: string) => {
@@ -27,24 +26,22 @@ const pipeOutput = (proc: ChildProcessWithoutNullStreams, source: string) => {
 const main = () => {
   const {
     positionals,
-    values: {
-      command = 'npm run dev'
-    }
+    values: { command = 'npm run dev' },
   } = parseArgs({
     allowPositionals: true,
     options: {
       command: {
         type: 'string',
-        short: 'c' 
-      }
-    }
+        short: 'c', 
+      },
+    },
   })
   const sources = positionals
 
   for( const source of sources ) {
     const proc = spawn('sh', [
       '-c',
-      `cd ${source}; ${command}`
+      `cd ${source}; ${command}`,
     ])
 
     pipeOutput(proc, source)
