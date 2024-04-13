@@ -54,8 +54,10 @@ const main = () => {
     const cleanSource = source.replace(/\/$/, '')
     const proc = spawn('sh', [
       '-c',
-      `cd ${source}; ${command}`,
-    ])
+      command,
+    ], {
+      cwd: source
+    })
 
     pipeOutput(proc, cleanSource, index)
   }
