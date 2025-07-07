@@ -1,6 +1,6 @@
-import { spawn, type ChildProcessWithoutNullStreams } from 'child_process'
-import { Transform } from 'stream'
-import { parseArgs } from 'util'
+import { spawn, type ChildProcessWithoutNullStreams } from 'node:child_process'
+import { Transform } from 'node:stream'
+import { parseArgs } from 'node:util'
 
 const ANSI_COLORS = [
   '\x1b[37m',
@@ -56,7 +56,7 @@ const main = () => {
       '-c',
       command,
     ], {
-      cwd: source
+      cwd: source,
     })
 
     pipeOutput(proc, cleanSource, index)
