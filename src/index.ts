@@ -1,18 +1,18 @@
 import { spawn, type ChildProcessWithoutNullStreams } from 'node:child_process'
 import { Transform } from 'node:stream'
-import { parseArgs } from 'node:util'
+import { parseArgs, styleText } from 'node:util'
 
-const ANSI_COLORS = [
-  '\x1b[37m',
-  '\x1b[36m',
-  '\x1b[35m',
-  '\x1b[34m',
-  '\x1b[33m',
+const ANSI_COLORS: Parameters<typeof styleText>[0] = [
+  'cyan',
+  'green',
+  'gray',
+  'blue',
+  'yellow',
 ]
 
 const colorize = (text: string, index: number) => {
   const color = ANSI_COLORS[index % (ANSI_COLORS.length + 1)]
-  return `\x1b[2m${color}${text}\x1b[0m`
+  return styleText([color, 'dim'], text)
 }
 
 const transformOutput = (source: string, index: number) => new Transform({
@@ -52,11 +52,9 @@ const main = () => {
 
   for( const [index, source] of sources.entries() ) {
     const cleanSource = source.replace(/\/$/, '')
-    const proc = spawn('sh', [
-      '-c',
-      command,
-    ], {
+    const proc = spawn(command, {
       cwd: source,
+      shell: true,
     })
 
     pipeOutput(proc, cleanSource, index)
@@ -64,3 +62,4 @@ const main = () => {
 }
 
 main()
+
