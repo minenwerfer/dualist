@@ -12,7 +12,10 @@ const ANSI_COLORS: Parameters<typeof styleText>[0] = [
 
 const colorize = (text: string, index: number) => {
   const color = ANSI_COLORS[index % (ANSI_COLORS.length + 1)]
-  return styleText([color, 'dim'], text)
+  return styleText([
+    color,
+    'dim',
+  ], text)
 }
 
 const transformOutput = (source: string, index: number) => new Transform({
