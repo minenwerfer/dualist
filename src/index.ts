@@ -46,7 +46,7 @@ const main = () => {
     options: {
       command: {
         type: 'string',
-        short: 'c', 
+        short: 'c',
       },
     },
   })
