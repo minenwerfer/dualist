@@ -2,6 +2,7 @@
   "name": "dualist",
   "version": "0.0.5",
   "description": "",
+  "packageManager": "pnpm@9.1.0",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo skipping",
